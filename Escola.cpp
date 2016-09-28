@@ -115,8 +115,9 @@ void main(void)
 						break;
 				}
 
+				j--;
 				
-				cout << "Este aluno terá $" << (j - 1) * VALOR_DESCONTO_POR_PARENTE << " de desconto." << endl;
+				cout << "Este aluno terá $" << j * VALOR_DESCONTO_POR_PARENTE << "% de desconto." << endl;
 
 				PAUSA;
 
@@ -130,8 +131,11 @@ void main(void)
 				LIMPAR_TELA;
 
 				vetRaiasLivres[nRaia] = true;
-				vetMensalidades[nRaia] = VALOR_MENSALIDADE - (VALOR_DESCONTO_POR_PARENTE * (j - 1));
-
+			
+					vetMensalidades[nRaia] = VALOR_MENSALIDADE - (VALOR_MENSALIDADE / VALOR_DESCONTO_POR_PARENTE) *j;
+			
+				
+				
 				cout << "Aluno/a: " << vetSobrenomes[nRaia] << endl << " Está matrículado na raia: "
 					<< nRaia % QTDE_RAIAS_DA_PISCINA + 1 << " no período: " << nPeriodo << "." << endl
 					<< "O valor de sua mensalidade é de: $" << vetMensalidades[nRaia] << ".\n";
